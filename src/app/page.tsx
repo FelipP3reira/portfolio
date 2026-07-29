@@ -8,7 +8,7 @@ import { Sobre } from '@/components/sobre';
 export default function Pagina() {
   return (
     <>
-      <main>
+      <main id="conteudo">
         <Hero />
         <Sobre />
         <Projetos />
