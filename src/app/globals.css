@@ -1,40 +1,68 @@
 @import 'tailwindcss';
 
 /*
- * Tema escuro, dev-focused. Um acento só, dirigido pelo config: o atributo
- * data-acento no <html> troca a variável --acento, e todo o resto (links,
- * tags, cursor) lê de --color-acento. Trocar o acento é mudar uma linha no
- * config, sem tocar em componente.
+ * Dois temas, um acento. As cores neutras vêm do data-tema no <html> (escuro
+ * por padrão) e o acento do data-acento — cada acento tem uma variante para o
+ * fundo escuro e outra, mais fechada, para o claro (contraste AA sobre branco).
+ * Trocar o tema é mudar um atributo; trocar o acento, uma linha no config.
  */
 @theme {
-  --color-fundo: #09090b;
-  --color-superficie: #111114;
-  --color-superficie-alta: #17171b;
-  --color-borda: #23232a;
-  --color-texto: #e8e8ea;
-  --color-texto-suave: #a1a1aa;
-  --color-texto-fraco: #71717a;
+  --color-fundo: var(--fundo);
+  --color-superficie: var(--superficie);
+  --color-superficie-alta: var(--superficie-alta);
+  --color-borda: var(--borda);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --color-texto-fraco: var(--texto-fraco);
   --color-acento: var(--acento);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-:root {
-  --acento: #22d3ee;
+/* Tema escuro — o padrão. */
+:root,
+[data-tema='escuro'] {
+  --fundo: #09090b;
+  --superficie: #111114;
+  --superficie-alta: #17171b;
+  --borda: #23232a;
+  --texto: #e8e8ea;
+  --texto-suave: #a1a1aa;
+  --texto-fraco: #71717a;
+  --acento: var(--acento-escuro);
+  color-scheme: dark;
 }
+
+/* Tema claro. */
+[data-tema='claro'] {
+  --fundo: #fafafa;
+  --superficie: #ffffff;
+  --superficie-alta: #f4f4f5;
+  --borda: #e4e4e7;
+  --texto: #18181b;
+  --texto-suave: #3f3f46;
+  --texto-fraco: #52525b;
+  --acento: var(--acento-claro);
+  color-scheme: light;
+}
+
+/* Acentos: uma variante para o fundo escuro, outra mais fechada para o claro. */
+:root,
 [data-acento='ciano'] {
-  --acento: #22d3ee;
+  --acento-escuro: #22d3ee;
+  --acento-claro: #0e7490;
 }
 [data-acento='verde'] {
-  --acento: #34d399;
+  --acento-escuro: #34d399;
+  --acento-claro: #047857;
 }
 [data-acento='ambar'] {
-  --acento: #fbbf24;
+  --acento-escuro: #fbbf24;
+  --acento-claro: #b45309;
 }
 
 html {
-  color-scheme: dark;
   scroll-behavior: smooth;
 }
 

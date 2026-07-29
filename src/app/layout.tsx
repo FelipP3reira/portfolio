@@ -2,8 +2,13 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 
+import { AlternarTema } from '@/components/alternar-tema';
 import { portfolio } from '@/config/portfolio';
 import './globals.css';
+
+// Aplica o tema salvo antes da primeira pintura, para não piscar. O padrão é
+// escuro; só muda se o visitante já escolheu claro antes.
+const scriptTema = `(function(){try{var t=localStorage.getItem('tema');document.documentElement.dataset.tema=(t==='claro'||t==='escuro')?t:'escuro';}catch(e){}})();`;
 
 const { perfil, links } = portfolio;
 
@@ -36,10 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
+      data-tema="escuro"
       data-acento={portfolio.acento}
       className={`${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
     >
       <body>
+        <script dangerouslySetInnerHTML={{ __html: scriptTema }} />
         {/* Sem JS, o fade-in não roda: força as seções visíveis. */}
         <noscript>
           <style>{`.revelar{opacity:1 !important;translate:none !important;}`}</style>
@@ -50,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Pular para o conteúdo
         </a>
+        <AlternarTema />
         {children}
       </body>
     </html>
