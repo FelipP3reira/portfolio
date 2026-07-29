@@ -47,5 +47,5 @@ Em construção, por fatias:
       tipado, metadata base
 - [x] Projetos: busca do GitHub (cache + fallback) e o grid de cards
 - [x] Hero e Sobre
-- [ ] Habilidades, Certificados e Rodapé/Contato
+- [x] Habilidades, Certificados e Rodapé/Contato
 - [ ] Acabamento: imagem OG, sitemap/robots, passe de acessibilidade e Lighthouse
