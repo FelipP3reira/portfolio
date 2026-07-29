@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+/*
+ * Tema escuro, dev-focused. Um acento só, dirigido pelo config: o atributo
+ * data-acento no <html> troca a variável --acento, e todo o resto (links,
+ * tags, cursor) lê de --color-acento. Trocar o acento é mudar uma linha no
+ * config, sem tocar em componente.
+ */
+@theme {
+  --color-fundo: #09090b;
+  --color-superficie: #111114;
+  --color-superficie-alta: #17171b;
+  --color-borda: #23232a;
+  --color-texto: #e8e8ea;
+  --color-texto-suave: #a1a1aa;
+  --color-texto-fraco: #71717a;
+  --color-acento: var(--acento);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+:root {
+  --acento: #22d3ee;
+}
+[data-acento='ciano'] {
+  --acento: #22d3ee;
+}
+[data-acento='verde'] {
+  --acento: #34d399;
+}
+[data-acento='ambar'] {
+  --acento: #fbbf24;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Foco visível no teclado — acessibilidade, nunca remover o outline sem trocar. */
+:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respeita quem pediu menos movimento: corta transições e animações. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
