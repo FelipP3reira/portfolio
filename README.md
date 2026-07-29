@@ -24,9 +24,9 @@ npm run dev               # http://localhost:3000
 ## Editando o conteúdo
 
 Tudo que é seu vive em [`src/config/portfolio.ts`](src/config/portfolio.ts):
-bio, links, projetos em destaque (com descrição própria), repositórios a
-esconder, habilidades, certificados e o acento de cor. Nenhum texto fica preso
-em componente.
+bio, links, projetos em destaque (com descrição própria), a allowlist de quais
+repositórios mostrar, habilidades, certificados e o acento de cor. Nenhum texto
+fica preso em componente.
 
 ## Decisões
 
@@ -45,7 +45,7 @@ Em construção, por fatias:
 
 - [x] Bootstrap: Next + TS + Tailwind v4, fontes, tema escuro/ciano, config
       tipado, metadata base
-- [ ] Projetos: busca do GitHub (cache + fallback) e o grid de cards
+- [x] Projetos: busca do GitHub (cache + fallback) e o grid de cards
 - [ ] Hero e Sobre
 - [ ] Habilidades, Certificados e Rodapé/Contato
 - [ ] Acabamento: imagem OG, sitemap/robots, passe de acessibilidade e Lighthouse

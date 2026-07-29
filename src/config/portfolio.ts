@@ -38,10 +38,12 @@ export interface Portfolio {
     cv: string;
   };
   destaques: Destaque[];
-  ignorados: {
-    repos: string[];
-    ignorarForks: boolean;
-  };
+  /**
+   * Allowlist: só estes repositórios aparecem no grid (mais os destaques, que
+   * entram sempre). Mantém os exercícios de curso fora da vitrine — um projeto
+   * novo só aparece quando você o adiciona aqui.
+   */
+  mostrar: string[];
   habilidades: Record<string, string[]>;
   certificados: Certificado[];
 }
@@ -81,17 +83,21 @@ export const portfolio: Portfolio = {
         'Fila de jobs caseira sobre Redis, com scripts Lua atômicos, retry com backoff, dead-letter queue e recuperação de jobs travados por lease. A base reaproveitada em outros projetos.',
     },
     {
-      repo: 'Chatbot_RAG',
+      repo: 'Chatbot',
       descricao:
         'Chatbot com RAG em FastAPI + pgvector, streaming por SSE, resiliência do provedor de LLM e defesas contra prompt injection e XSS.',
     },
   ],
 
-  ignorados: {
-    // O próprio repo do site e o que não é vitrine.
-    repos: ['portfolio', 'FelipP3reira'],
-    ignorarForks: true,
-  },
+  // Os projetos que entram na vitrine. Os destaques acima já entram sozinhos;
+  // aqui vai o resto que vale mostrar. Tudo que não estiver aqui fica de fora.
+  mostrar: [
+    'Gerenciador_Tarefas',
+    'Sistema_Upload_Arquivos',
+    'Encurtador_URLs',
+    'Sistema_Autenticacao',
+    'APi_Rest',
+  ],
 
   habilidades: {
     Linguagens: ['TypeScript', 'PHP', 'Python', 'SQL'],
