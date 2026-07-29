@@ -52,6 +52,26 @@ body {
   border-radius: 2px;
 }
 
+/* Cursor de terminal piscando — o toque dev do hero, com moderação. */
+@keyframes piscar {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.cursor {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1.1em;
+  translate: 0 0.15em;
+  background-color: var(--color-acento);
+  animation: piscar 1.1s steps(1) infinite;
+}
+
 /* Respeita quem pediu menos movimento: corta transições e animações. */
 @media (prefers-reduced-motion: reduce) {
   *,

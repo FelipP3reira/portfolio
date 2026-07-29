@@ -46,6 +46,6 @@ Em construção, por fatias:
 - [x] Bootstrap: Next + TS + Tailwind v4, fontes, tema escuro/ciano, config
       tipado, metadata base
 - [x] Projetos: busca do GitHub (cache + fallback) e o grid de cards
-- [ ] Hero e Sobre
+- [x] Hero e Sobre
 - [ ] Habilidades, Certificados e Rodapé/Contato
 - [ ] Acabamento: imagem OG, sitemap/robots, passe de acessibilidade e Lighthouse
