@@ -34,6 +34,7 @@ export interface Portfolio {
   links: {
     github: string;
     linkedin: string;
+    instagram: string;
     email: string;
     cv: string;
   };
@@ -54,18 +55,19 @@ export const portfolio: Portfolio = {
 
   perfil: {
     nome: 'Felipe Pereira',
-    titulo: 'Desenvolvedor Full Stack — backend sólido, React no front.',
+    titulo: 'Desenvolvedor Full Stack com o peso no backend — Python, PHP e Node.js.',
     bio: [
-      'Sou desenvolvedor Full Stack com o peso no backend. Trabalho com PHP/Laravel, Node/TypeScript e Python/FastAPI no servidor, e com React/TypeScript no front. No banco, PostgreSQL e SQL Server.',
-      'Cheguei ao desenvolvimento pelo caminho mais longo: vim do setor financeiro, onde aprendi a ler um problema até o fim antes de tocar no código e a me importar com o que acontece quando algo dá errado em produção. Troquei de área para construir as ferramentas, não só usá-las.',
-      'Gosto de sistemas que se explicam sozinhos: idempotência onde a corrida acontece, filas com retry e dead-letter, testes de integração de verdade. O que você vê nos projetos abaixo é isso — cada um resolve um problema real, com as decisões escritas no README.',
+      'Sou desenvolvedor na EnterScience, onde construo software sob demanda para clientes — do backend e da modelagem de dados às integrações. No dia a dia, PHP/Laravel, Node/TypeScript e Python (Flask, FastAPI), com SQL Server e PostgreSQL no banco.',
+      'Cheguei ao desenvolvimento pelo caminho mais longo: vim do setor financeiro, onde aprendi a ler um problema até o fim antes de escrever a primeira linha e a me importar com o que acontece quando algo dá errado em produção. Troquei de área para construir as ferramentas, não só usá-las — e sigo me formando em Análise e Desenvolvimento de Sistemas no IFSP.',
+      'Sou Full Stack com o peso no backend: fico à vontade com React/TypeScript no front, mas é no servidor que gosto de morar. Já construí desde um pipeline de transcrição de vídeo 100% local com FastAPI e Faster-Whisper até a fila de jobs, o RAG e o sistema de notificações que você vê abaixo — cada projeto resolve um problema real, com as decisões escritas no README.',
     ],
-    localizacao: 'Brasil',
+    localizacao: 'Barretos, SP · aberto a remoto',
   },
 
   links: {
     github: 'https://github.com/FelipP3reira',
-    linkedin: 'https://www.linkedin.com/in/felipe-pereira',
+    linkedin: 'https://www.linkedin.com/in/felipe-pereira03',
+    instagram: 'https://www.instagram.com/felipepg_/',
     email: 'felipegopereira01@gmail.com',
     cv: '/cv.pdf',
   },
@@ -97,6 +99,7 @@ export const portfolio: Portfolio = {
     'Encurtador_URLs',
     'Sistema_Autenticacao',
     'APi_Rest',
+    'Peaple_flow',
   ],
 
   habilidades: {
@@ -109,13 +112,28 @@ export const portfolio: Portfolio = {
 
   certificados: [
     {
-      titulo: 'Cambridge English (nível B1/B2)',
-      instituicao: 'Cambridge Assessment English',
-      ano: 2023,
+      titulo: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
+      instituicao: 'IFSP — Instituto Federal de São Paulo',
+      ano: 2026,
     },
     {
-      titulo: 'Análise e Desenvolvimento de Sistemas',
-      instituicao: 'Graduação (Tecnólogo)',
+      titulo: 'Formação Cientista de Dados: O Curso Completo (47h)',
+      instituicao: 'Udemy',
+      ano: 2026,
+    },
+    {
+      titulo: 'Cambridge English (nível B1/B2)',
+      instituicao: 'Cambridge Assessment English',
+      ano: 2020,
+    },
+    {
+      titulo: 'Laravel (PHP)',
+      instituicao: 'EnterScience',
+      ano: 2025,
+    },
+    {
+      titulo: 'Node.js',
+      instituicao: 'EnterScience',
       ano: 2025,
     },
   ],

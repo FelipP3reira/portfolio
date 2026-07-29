@@ -1,4 +1,4 @@
-import { FileText, Github, Linkedin, Mail } from 'lucide-react';
+import { FileText, Github, Instagram, Linkedin, Mail } from 'lucide-react';
 
 import { portfolio } from '@/config/portfolio';
 
@@ -8,6 +8,7 @@ const contatos = [
   { href: `mailto:${links.email}`, rotulo: 'E-mail', Icone: Mail, externo: false },
   { href: links.github, rotulo: 'GitHub', Icone: Github, externo: true },
   { href: links.linkedin, rotulo: 'LinkedIn', Icone: Linkedin, externo: true },
+  { href: links.instagram, rotulo: 'Instagram', Icone: Instagram, externo: true },
   { href: links.cv, rotulo: 'Currículo', Icone: FileText, externo: true },
 ];
 
