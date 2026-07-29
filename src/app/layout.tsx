@@ -39,7 +39,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-acento={portfolio.acento}
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {/* Sem JS, o fade-in não roda: força as seções visíveis. */}
+        <noscript>
+          <style>{`.revelar{opacity:1 !important;translate:none !important;}`}</style>
+        </noscript>
+        <a
+          href="#conteudo"
+          className="bg-superficie text-acento border-borda focus:ring-acento sr-only rounded-md border px-4 py-2 focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50"
+        >
+          Pular para o conteúdo
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
