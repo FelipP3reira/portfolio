@@ -75,6 +75,11 @@ export const portfolio: Portfolio = {
   // Sobem para o topo, marcados como principais. A ordem aqui é a ordem exibida.
   destaques: [
     {
+      repo: 'Gateway_Pagamentos',
+      descricao:
+        'Gateway de pagamentos (sandbox) que abstrai provedores — Stripe, um provider fake e PIX — atrás de uma interface comum. Máquina de estados com transições explícitas, webhooks com assinatura verificada e idempotência à prova de cobrança dupla. O PIX gera o QR/copia-e-cola (BR Code EMV + CRC16) de verdade.',
+    },
+    {
       repo: 'Sistema_Notificacoes',
       descricao:
         'Serviço de notificações multicanal (in-app, e-mail, webhook) com preferências por usuário, entrega assíncrona com retry por canal e agrupamento em digest. Idempotência garantida no banco, sob corrida.',
