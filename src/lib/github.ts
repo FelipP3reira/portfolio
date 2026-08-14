@@ -81,9 +81,14 @@ function normalizar(repo: RepoGitHub, linguagens: string[]): Projeto {
 function ordenar(a: Projeto, b: Projeto): number {
   // Destaques primeiro, na ordem do config; depois estrelas; depois recência.
   if (a.destaque !== b.destaque) return a.destaque ? -1 : 1;
+
   if (a.destaque && b.destaque) {
+    // Entre os destaques, trabalho de cliente abre a lista: software entregue e
+    // em produção diz mais a quem recruta do que qualquer projeto de estudo.
+    if (a.privado !== b.privado) return a.privado ? -1 : 1;
     return indiceDestaque(a.nome) - indiceDestaque(b.nome);
   }
+
   if (a.estrelas !== b.estrelas) return b.estrelas - a.estrelas;
   return b.atualizadoEm.localeCompare(a.atualizadoEm);
 }
@@ -103,6 +108,23 @@ function fallbackDoConfig(): Projeto[] {
   }));
 }
 
+// Trabalho de cliente entra pelo config: o repositório é fechado, então não há
+// o que buscar na API.
+function projetosPrivados(): Projeto[] {
+  return portfolio.projetosPrivados.map((p) => ({
+    nome: p.nome,
+    descricao: p.descricao,
+    url: null,
+    demo: p.demo ?? null,
+    linguagens: p.stack,
+    estrelas: 0,
+    // Sem data do GitHub; o desempate por recência não se aplica a estes.
+    atualizadoEm: '',
+    destaque: p.destaque ?? false,
+    privado: true,
+  }));
+}
+
 export interface ResultadoProjetos {
   projetos: Projeto[];
   // true quando a API não respondeu e caímos no config.
@@ -115,13 +137,16 @@ export async function buscarProjetos(): Promise<ResultadoProjetos> {
   );
 
   if (!repos) {
-    return { projetos: fallbackDoConfig(), offline: true };
+    // Mesmo sem a API, o trabalho de cliente aparece: ele não depende dela.
+    return { projetos: [...projetosPrivados(), ...fallbackDoConfig()], offline: true };
   }
 
   const visiveis = repos.filter(deveMostrar);
-  const projetos = await Promise.all(
+  const doGitHub = await Promise.all(
     visiveis.map(async (repo) => normalizar(repo, await linguagensDo(repo))),
   );
+
+  const projetos = [...doGitHub, ...projetosPrivados()];
   projetos.sort(ordenar);
 
   return { projetos, offline: false };

@@ -28,10 +28,13 @@ export type LinguagensGitHub = Record<string, number>;
 export interface Projeto {
   nome: string;
   descricao: string | null;
-  url: string;
+  // Nulo em trabalho de cliente: o código é privado, não há repositório aberto.
+  url: string | null;
   demo: string | null;
   linguagens: string[];
   estrelas: number;
   atualizadoEm: string;
   destaque: boolean;
+  // Marca o trabalho feito para cliente, que ganha um selo próprio no card.
+  privado?: boolean;
 }

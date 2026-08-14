@@ -15,6 +15,16 @@ export interface Destaque {
   descricao?: string;
 }
 
+export interface ProjetoPrivado {
+  nome: string;
+  descricao: string;
+  /** Tecnologias, já que não há endpoint de linguagens para consultar. */
+  stack: string[];
+  /** Link para a aplicação no ar, se fizer sentido divulgar. */
+  demo?: string;
+  destaque?: boolean;
+}
+
 export interface Certificado {
   titulo: string;
   instituicao: string;
@@ -45,6 +55,11 @@ export interface Portfolio {
    * novo só aparece quando você o adiciona aqui.
    */
   mostrar: string[];
+  /**
+   * Projetos sem repositório público — trabalho de cliente, cujo código é
+   * fechado. Entram no grid junto com os do GitHub, com um selo próprio.
+   */
+  projetosPrivados: ProjetoPrivado[];
   habilidades: Record<string, string[]>;
   certificados: Certificado[];
 }
@@ -85,6 +100,11 @@ export const portfolio: Portfolio = {
         'Serviço de notificações multicanal (in-app, e-mail, webhook) com preferências por usuário, entrega assíncrona com retry por canal e agrupamento em digest. Idempotência garantida no banco, sob corrida.',
     },
     {
+      repo: 'Sistema_Cache',
+      descricao:
+        'Biblioteca de cache escrita do zero em Python: políticas de evicção trocáveis (LRU, LFU em O(1) e TTL), duas camadas com invalidação coerente entre instâncias e proteção contra cache stampede. O README compara as políticas e diz onde cada uma perde.',
+    },
+    {
       repo: 'Sistema_Filas',
       descricao:
         'Fila de jobs caseira sobre Redis, com scripts Lua atômicos, retry com backoff, dead-letter queue e recuperação de jobs travados por lease. A base reaproveitada em outros projetos.',
@@ -105,6 +125,17 @@ export const portfolio: Portfolio = {
     'Sistema_Autenticacao',
     'APi_Rest',
     'Peaple_flow',
+  ],
+
+  // Trabalho de cliente: o código é fechado, então não vem do GitHub.
+  projetosPrivados: [
+    {
+      nome: 'Dashboard para Educadores Físicos',
+      descricao:
+        'Sistema sob medida para um profissional de educação física administrar seus alunos: cadastro com anamnese, avaliação física com adipômetro (protocolo Pollock de 7 dobras) calculando percentual de gordura e composição corporal, evolução em gráficos, montagem de treinos com arrastar e soltar, agenda e relatórios em PDF. Projeto entregue e em produção.',
+      stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+      destaque: true,
+    },
   ],
 
   habilidades: {
