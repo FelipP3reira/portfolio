@@ -130,6 +130,13 @@ export const portfolio: Portfolio = {
   // Trabalho de cliente: o código é fechado, então não vem do GitHub.
   projetosPrivados: [
     {
+      nome: 'Dashboard para Clínica de Fisioterapia',
+      descricao:
+        'Sistema de gestão sob medida para um consultório de fisioterapia, substituindo uma ferramenta montada em plataforma de baixo código. Agenda com sessões recorrentes e bloqueio de horário — a garantia de que dois pacientes não ocupam o mesmo horário mora no banco, numa constraint de exclusão, não no formulário. Ficha clínica, atendimentos com evolução, painel financeiro com impostos, INSS e líquido, cobrança por Pix gerando o BR Code na chave do próprio profissional (sem provedor e sem taxa) e recibo mensal em PDF montado a partir do histórico. Projeto entregue e em produção.',
+      stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+      destaque: true,
+    },
+    {
       nome: 'Dashboard para Educadores Físicos',
       descricao:
         'Sistema sob medida para um profissional de educação física administrar seus alunos: cadastro com anamnese, avaliação física com adipômetro (protocolo Pollock de 7 dobras) calculando percentual de gordura e composição corporal, evolução em gráficos, montagem de treinos com arrastar e soltar, agenda e relatórios em PDF. Projeto entregue e em produção.',
