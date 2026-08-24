@@ -90,6 +90,16 @@ export const portfolio: Portfolio = {
   // Sobem para o topo, marcados como principais. A ordem aqui é a ordem exibida.
   destaques: [
     {
+      repo: 'Skill',
+      descricao:
+        'Skill de agente que responde uma pergunta só: a mudança no prompt melhorou, piorou, ou a diferença está dentro do ruído? Fecha no código os cinco atalhos que produzem um número com cara de rigor — escolher a métrica depois de ver o resultado, mexer no conjunto entre variantes e rodar uma vez só viram portão que bloqueia a execução. A comparação usa bootstrap pareado e trata "dentro do ruído" como veredito legítimo, listando as regressões caso a caso. Escrita no formato do guia writing-great-skills.',
+    },
+    {
+      repo: 'Monitoramento_APIs',
+      descricao:
+        'Monitor de uptime e latência de APIs, com checks agendados, detecção de incidente e alertas sem spam. O agendador distribui os checks entre vários workers com FOR UPDATE SKIP LOCKED, sem fila e sem Redis. A guarda de SSRF barra as faixas privadas e também os disfarces — loopback mapeado em IPv6, 6to4 e NAT64 — porque um monitor que busca URL do usuário é, por construção, um proxy para a rede interna. O uptime trunca em vez de arredondar, e período sem check devolve nulo em vez de 100%.',
+    },
+    {
       repo: 'Gateway_Pagamentos',
       descricao:
         'Gateway de pagamentos (sandbox) que abstrai provedores — Stripe, um provider fake e PIX — atrás de uma interface comum. Máquina de estados com transições explícitas, webhooks com assinatura verificada e idempotência à prova de cobrança dupla. O PIX gera o QR/copia-e-cola (BR Code EMV + CRC16) de verdade.',
