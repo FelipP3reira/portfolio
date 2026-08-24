@@ -146,9 +146,9 @@ export const portfolio: Portfolio = {
   ],
 
   habilidades: {
-    Linguagens: ['TypeScript', 'PHP', 'Python', 'SQL'],
+    Linguagens: ['TypeScript', 'PHP', 'Python', 'Java', 'SQL'],
     Frontend: ['React', 'Next.js', 'Tailwind CSS'],
-    Backend: ['Node.js', 'Fastify', 'Laravel', 'FastAPI'],
+    Backend: ['Node.js', 'Fastify', 'Laravel', 'FastAPI', 'Python', 'Java'],
     Banco: ['PostgreSQL', 'SQL Server', 'Redis'],
     Ferramentas: ['Docker', 'Git', 'Vitest', 'Kysely'],
   },
