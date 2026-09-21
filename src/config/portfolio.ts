@@ -70,11 +70,11 @@ export const portfolio: Portfolio = {
 
   perfil: {
     nome: 'Felipe Pereira',
-    titulo: 'Desenvolvedor Full Stack com o peso no backend — Python, PHP e Node.js.',
+    titulo: 'Desenvolvedor Full Stack com o peso no backend — Python, PHP, Node.js e C#.',
     bio: [
       'Sou desenvolvedor na EnterScience, onde construo software sob demanda para clientes — do backend e da modelagem de dados às integrações. No dia a dia, PHP/Laravel, Node/TypeScript e Python (Flask, FastAPI), com SQL Server e PostgreSQL no banco.',
       'Cheguei ao desenvolvimento pelo caminho mais longo: vim do setor financeiro, onde aprendi a ler um problema até o fim antes de escrever a primeira linha e a me importar com o que acontece quando algo dá errado em produção. Troquei de área para construir as ferramentas, não só usá-las — e sigo me formando em Análise e Desenvolvimento de Sistemas no IFSP.',
-      'Sou Full Stack com o peso no backend: fico à vontade com React/TypeScript no front, mas é no servidor que gosto de morar. Já construí desde um pipeline de transcrição de vídeo 100% local com FastAPI e Faster-Whisper até a fila de jobs, o RAG e o sistema de notificações que você vê abaixo — cada projeto resolve um problema real, com as decisões escritas no README.',
+      'Sou Full Stack com o peso no backend: fico à vontade com React/TypeScript no front, mas é no servidor que gosto de morar. Já construí desde um pipeline de transcrição de vídeo 100% local com FastAPI e Faster-Whisper até uma fatia de core banking em C# e .NET, com ledger imutável e controle de concorrência testado sob corrida — cada projeto resolve um problema real, com as decisões escritas no README.',
     ],
     localizacao: 'Barretos, SP · aberto a remoto',
   },
@@ -89,6 +89,16 @@ export const portfolio: Portfolio = {
 
   // Sobem para o topo, marcados como principais. A ordem aqui é a ordem exibida.
   destaques: [
+    {
+      repo: 'Plataforma_Bancaria',
+      descricao:
+        'Fatia de core banking em C# e .NET 10, com interface web própria: contas, extrato, transferência, bloqueio e empréstimo. O saldo não é um campo que se atualiza — cada movimentação é um lançamento imutável no ledger, e uma rota reconcilia os dois e acusa divergência na hora. Duas transferências simultâneas sacando da mesma conta no limite do saldo: só uma passa, garantido por trava pessimista e provado por teste que dispara as duas ao mesmo tempo contra um SQL Server de verdade. O extrato pagina por marcador, nunca por OFFSET, porque lançamento novo entre duas páginas faria o cliente ver a mesma linha duas vezes. Toda operação financeira exige chave de idempotência.',
+    },
+    {
+      repo: 'Core_Credito',
+      descricao:
+        'Motor de análise e concessão de crédito em .NET 10. A proposta atravessa uma máquina de estados que não aceita atalho, e cada decisão sai com um laudo dizendo regra a regra por que aprovou ou negou — a taxa contratada é a da decisão, não a da política de hoje. O CPF não aparece em log nem em coluna: fica cifrado em repouso, com busca por hash. Integrado à Plataforma Bancária, o empréstimo vira produto da conta: o valor aprovado cai no extrato do cliente e cada parcela paga sai dela. Como são dois serviços e não existe transação cobrindo os dois, a chave de idempotência é derivada do contrato — repetir um desembolso interrompido nunca credita duas vezes.',
+    },
     {
       repo: 'Skill',
       descricao:
@@ -156,11 +166,11 @@ export const portfolio: Portfolio = {
   ],
 
   habilidades: {
-    Linguagens: ['TypeScript', 'PHP', 'Python', 'Java', 'SQL'],
+    Linguagens: ['TypeScript', 'C#', 'PHP', 'Python', 'Java', 'SQL'],
     Frontend: ['React', 'Next.js', 'Tailwind CSS'],
-    Backend: ['Node.js', 'Fastify', 'Laravel', 'FastAPI', 'Python', 'Java'],
+    Backend: ['Node.js', 'Fastify', 'ASP.NET Core', 'Laravel', 'FastAPI', 'Python', 'Java'],
     Banco: ['PostgreSQL', 'SQL Server', 'Redis'],
-    Ferramentas: ['Docker', 'Git', 'Vitest', 'Kysely'],
+    Ferramentas: ['Docker', 'Git', 'Entity Framework', 'xUnit', 'Testcontainers', 'Vitest', 'Kysely'],
   },
 
   certificados: [
