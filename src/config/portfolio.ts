@@ -72,7 +72,7 @@ export const portfolio: Portfolio = {
     nome: 'Felipe Pereira',
     titulo: 'Desenvolvedor Full Stack com o peso no backend — Python, PHP, Node.js e C#.',
     bio: [
-      'Sou desenvolvedor na EnterScience, onde construo software sob demanda para clientes — do backend e da modelagem de dados às integrações. No dia a dia, PHP/Laravel, Node/TypeScript e Python (Flask, FastAPI), com SQL Server e PostgreSQL no banco.',
+      'Sou desenvolvedor na EnterScience, onde construo software sob demanda para clientes — do backend e da modelagem de dados às integrações. No dia a dia, PHP/Laravel, Node/TypeScript, Python (Flask, FastAPI) e C#/.NET, com SQL Server e PostgreSQL no banco.',
       'Cheguei ao desenvolvimento pelo caminho mais longo: vim do setor financeiro, onde aprendi a ler um problema até o fim antes de escrever a primeira linha e a me importar com o que acontece quando algo dá errado em produção. Troquei de área para construir as ferramentas, não só usá-las — e sigo me formando em Análise e Desenvolvimento de Sistemas no IFSP.',
       'Sou Full Stack com o peso no backend: fico à vontade com React/TypeScript no front, mas é no servidor que gosto de morar. Já construí desde um pipeline de transcrição de vídeo 100% local com FastAPI e Faster-Whisper até uma fatia de core banking em C# e .NET, com ledger imutável e controle de concorrência testado sob corrida — cada projeto resolve um problema real, com as decisões escritas no README.',
     ],
